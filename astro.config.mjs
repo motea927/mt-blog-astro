@@ -7,6 +7,9 @@ import { defineConfig } from "astro/config";
 import config from "./src/config/config.json";
 
 // https://astro.build/config
+import vue from "@astrojs/vue";
+
+// https://astro.build/config
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
@@ -23,6 +26,7 @@ export default defineConfig({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
     mdx(),
+    vue(),
   ],
   markdown: {
     remarkPlugins: [],
