@@ -2,7 +2,7 @@
 title: "Vue CLI 無痛轉換 Vite 紀錄"
 description: "在 Vue CLI 的舊架構下，如何無痛轉換 Vite，同時保有抽換成 Webpack 5 的彈性"
 date: 2022-11-26T00:00:00Z
-image: "/images/posts/01.jpg"
+image: "/images/posts/js-1-vite-migrate.jpg"
 categories: ["JavaScript"]
 authors: ["Morty"]
 tags: ["Vue", "Vite", "JavaScript", "Webpack", "Rollup"]
