@@ -1,23 +1,60 @@
 ---
-title: "I’m John Doe, A content writer based in LDN, Currently at Bookworm"
+title: "I’m Morty, A passionate web developer"
 meta_title: "About"
-image: "/images/author.png"
+image: "/images/author.jpg"
 draft: false
 
-what_i_do:
-  title: "What I Do"
+contributions:
+  title: "Contributions"
   items:
-  - title: "Content Writing"
-    description: "Purus eget ipsum elementum venenatis, quis rutrum mi semper nonpurus eget ipsum elementum venenatis."
-  
-  - title: "Photography"
-    description: "Aenean maximus urna magna elementum, quis rutrum mi semper non purus eget ipsum venenatis."
-  
-  - title: "Web Research"
-    description: "Aenean maximus urna magna elementum venenatis, quis semper non purus eget ipsum venenatis."
+    - title: "[PR][unjs/nitro]"
+      description: "feat: allow ignoring public assets with ignore options #945"
+      date: "2023-07-14"
+      link: "https://github.com/unjs/nitro/pull/945"
 
+    - title: "[PR][pnpm/pnpm.io]"
+      description: " Update gitlab and bitbucket CI docs, friendly for developers #415"
+      date: "2023-05-19"
+      link: "https://github.com/pnpm/pnpm.io/pull/415"
+
+    - title: "[PR][zclzone/qs-admin]"
+      description: "fix typo for MenuItem interface #5"
+      date: "2023-04-03"
+      link: "https://github.com/zclzone/qs-admin/pull/5"
+
+    - title: "[Created an issue][unjs/nitro]"
+      description: "proxy is broken with direct fetch and streaming #950"
+      date: "2023-02-16"
+      link: "https://github.com/unjs/nitro/issues/950"
+
+    - title: "[Closed][nuxt-modules/i18n]"
+      description: "Translations fetched via API; Hydration mismatch #1688"
+      date: "2022-11-29"
+      link: "https://github.com/nuxt-modules/i18n/issues/1688"
+
+    - title: "[Answered][nuxt/nuxt]"
+      description: "Help: How to use App.vue and wait for store to be ready through the app #16257"
+      date: "2022-11-27"
+      link: "https://github.com/nuxt/nuxt/discussions/16257"
+
+    - title: "[Answered][nuxt/nuxt]"
+      description: "dynamic loading images #16593"
+      date: "2022-10-03"
+      link: "https://github.com/nuxt/nuxt/discussions/16593"
+
+    - title: "[Closed][unjs/ofetch]"
+      description: "how to change response data with interceptor? #124"
+      date: "2022-09-15"
+      link: "https://github.com/unjs/ofetch/issues/124"
+
+    - title: "Pending..."
+      description: ""
+      date: ""
+      link: ""
 ---
 
-A content writer with over 12 years experience working across brand identity, publishing and digital products. Maecenas sit amet purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis quis non purus.
+Hello, I'm Morty.
 
-Purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis, quis rutrum mi semper non purus eget ipsum elementum venenatis, aenean maximus urna magna elementum.
+I have a profound passion for computer science, with a particular interest in web development. Besides coding, I have been supplementing my knowledge through self-learning via platforms like YouTube, Udemy, and Medium.
+
+I'm an avid contributor to open-source projects on GitHub. A noteworthy contribution of mine is to the GitLab CI documentation for pnpm, showcasing my technical ability and commitment to the open-source community.

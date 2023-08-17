@@ -6,7 +6,7 @@ import { getEntryBySlug } from "astro:content";
 
 const entry = await getEntryBySlug("about", "index");
 const { Content } = await entry.render();
-const { title, description, meta_title, image, what_i_do } = entry.data;
+const { title, description, meta_title, image, contributions } = entry.data;
 ---
 
 <Base
@@ -24,7 +24,7 @@ const { title, description, meta_title, image, what_i_do } = entry.data;
               <Image
                 src={image}
                 width={295}
-                height={395}
+                height={440}
                 alt={title}
                 class="w-full rounded-lg"
                 format={'webp'}
@@ -45,14 +45,19 @@ const { title, description, meta_title, image, what_i_do } = entry.data;
 
   <section class="pt-0 section">
     <div class="container">
-      <h3 class="mb-20 page-heading">{what_i_do.title}</h3>
+      <h3 class="mb-20 page-heading">{contributions.title}</h3>
       <div class="justify-center text-center row gy-4">
-        {what_i_do.items.map((item: any) => (
-          <div class="lg:col-4 md:col-6">
-            <i class="{{.icon}} fa-3x text-primary mb-4"></i>
+        {contributions.items.map((item: any) => (
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="lg:col-4 md:col-6 hover:text-primary"
+          >  
             <h4 class="mb-3 text-dark font-weight-700">{item.title}</h4>
-            <p>{item.description}</p>
-          </div>
+            <p class="">{item.description}</p>
+            <time class="block text-xs">{item.date}</time>
+          </a>
         ))}
       </div>
     </div>
