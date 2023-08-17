@@ -17,7 +17,7 @@ const {
 } = config.site;
 ---
 
-<a href="/" class="navbar-brand block">
+<a href="/" class="block navbar-brand">
   {
     src || logo ? (
       <Image
@@ -29,6 +29,7 @@ const {
           height: logo_height.replace("px", "") + "px",
           width: logo_width.replace("px", "") + "px",
         }}
+        format={'webp'}
       />
     ) : logo_text ? (
       logo_text
