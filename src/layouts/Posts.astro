@@ -21,6 +21,7 @@ const { className, posts, fluid } = Astro.props;
               width={i === 0 ? 925 : 445}
               height={i === 0 ? 475 : 230}
               format={'webp'}
+              loading={i === 0 ? 'eager' : 'lazy'}
             />
           </a>
         )}
