@@ -18,8 +18,8 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="header pt-6">
-  <nav class="navbar container">
+<header class="pt-6 min-h-24 header">
+  <nav class="container navbar">
     <!-- logo -->
     <div class="order-0">
       <Logo />
@@ -29,7 +29,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="show-button"
       for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"
+      class="flex items-center order-2 text-black cursor-pointer md:order-1 md:hidden"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -39,7 +39,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="hide-button"
       for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center text-black md:order-1"
+      class="items-center order-2 hidden text-black cursor-pointer md:order-1"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Close</title>
@@ -52,20 +52,20 @@ const { main }: { main: NavigationLink[] } = menu;
 
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"
+      class="order-3 hidden w-full navbar-nav md:order-1 md:flex md:w-auto"
     >
       {
         main.map((menu) => (
           <>
             {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative cursor-pointer">
-                <span class="nav-link inline-flex items-center">
+              <li class="relative cursor-pointer nav-item nav-dropdown group">
+                <span class="inline-flex items-center nav-link">
                   {menu.name}
-                  <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                   </svg>
                 </span>
-                <ul class="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
+                <ul class="hidden nav-dropdown-list group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
                   {menu.children?.map((child) => (
                     <li class="nav-dropdown-item">
                       <a href={child.url} class="nav-dropdown-link">
@@ -77,7 +77,7 @@ const { main }: { main: NavigationLink[] } = menu;
               </li>
             ) : (
               <li class="nav-item">
-                <a href={menu.url} class="nav-link block">
+                <a href={menu.url} class="block nav-link">
                   {menu.name}
                 </a>
               </li>
@@ -86,9 +86,9 @@ const { main }: { main: NavigationLink[] } = menu;
         ))
       }
     </ul>
-    <div class="order-1 ml-auto flex md:order-2 md:ml-0">
+    <div class="flex order-1 ml-auto md:order-2 md:ml-0">
       <a
-        class="mr-4 inline-block cursor-pointer p-2 text-xl text-dark transition hover:text-primary md:mr-0"
+        class="inline-block p-2 mr-4 text-xl transition-colors cursor-pointer text-dark hover:text-primary md:mr-0"
         href="/search"
         title="seach"
         aria-label="seach"
