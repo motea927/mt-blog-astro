@@ -15,7 +15,9 @@ draft: false
 
 1. 在 [netlify](https://www.netlify.com/) 註冊及登入
 2. Team overview -> Add new site -> import an existing project
-   ![在 netlify 建立專案](/images/posts/web-1-netlify-domain-step.webp)
+
+   <img src="/images/posts/web-1-netlify-domain-step.webp" alt="在 netlify 建立專案" width="1327" height="881" loading="lazy" decoding="async"  />
+
 3. 連接 github
 4. 選擇專案
 
