@@ -14,7 +14,14 @@ const { className, posts, fluid } = Astro.props;
       <div class={i === 0 && fluid != false ? "col-12" : "col-12 sm:col-6"}>
         {post.data.image && (
           <a href={`/${post.slug}`} class="block overflow-hidden rounded-lg hover:text-primary group">
-          
+            <Image
+              class="group-hover:scale-[1.03] transition-transform duration-300 w-full"
+              src={post.data.image}
+              alt={post.data.title}
+              width={i === 0 ? 925 : 445}
+              height={i === 0 ? 475 : 230}
+              format={'webp'}
+            />
           </a>
         )}
         <ul class="flex flex-wrap items-center mt-6 mb-4 text-text">
