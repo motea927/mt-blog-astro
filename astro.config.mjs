@@ -36,7 +36,4 @@ export default defineConfig({
     },
     extendDefaultPlugins: true,
   },
-  build: {
-    inlineStylesheets: "auto",
-  },
 });
