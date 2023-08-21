@@ -34,7 +34,7 @@ const { main }: { main: NavigationLink[] } = menu;
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
                   </span>
-                  <ul class="hidden nav-dropdown-list group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
+                  <ul class="absolute right-0 hidden nav-dropdown-list group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
                     {menu.children?.map((child) => (
                       <li class="nav-dropdown-item">
                         <a href={child.url} class="nav-dropdown-link">
