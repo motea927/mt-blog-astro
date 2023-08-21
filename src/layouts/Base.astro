@@ -141,7 +141,7 @@ const { title, meta_title, description, image, noindex, canonical } =
   </head>
   <body>
     <TwSizeIndicator />
-    <Header />
+    {false && <Header />}
     <main id="main-content" class="min-h-[60vh]">
       <slot />
     </main>
