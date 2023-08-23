@@ -18,33 +18,39 @@ HTML 的元素主要被歸類為兩種顯示方式，一種是 `block`，一種�
 1. 透過 `display: block;` 進行設置，以下由範例會選一個預設就是區塊元素的 `p` tag 進行示範。
 2. 佔滿整行，也就是說一個區塊級元素會從新的一行開始，如三個 `p` tag 會分別佔滿三行。
 
----
+import BaseCodeGroup from "../../components/base/BaseCodeGroup.astro";
 
-<p>我是第一行</p>
-<p>我是第二行</p>
-<p>我是第三行</p>
-
-```html
-<p>我是第一行</p>
-<p>我是第二行</p>
-<p>我是第三行</p>
-```
-
----
+<BaseCodeGroup>
+  <div slot="code">
+    ```html
+    <p>我是第一行</p>
+    <p>我是第二行</p>
+    <p>我是第三行</p>
+    ```
+  </div>
+  <div slot="preview">
+    <p>我是第一行</p>
+    <p>我是第二行</p>
+    <p>我是第三行</p>
+  </div>
+</BaseCodeGroup>
 
 3. 我們也可以給予區塊級元素指定寬度，但他還是會佔滿整行，現實中常給予區塊級元素一個寬度並用 `margin: 0 auto;` 來進行水平置中。
 
----
-
-<p style="width: 50px; background-color: #aaa; margin: 0 auto;">
-  我是第一行
-</p>
-
-```html
-<p style="width: 50px; background-color: #aaa; margin: 0 auto;">我是第一行</p>
-```
-
----
+<BaseCodeGroup>
+  <div slot="code">
+    ```html
+    <p style="width: 50px; background-color: #aaa; margin: 0 auto;">
+      我是第一行
+    </p>
+    ```
+  </div>
+  <div slot="preview">
+    <p style="width: 50px; background-color: #aaa; margin: 0 auto;">
+      我是第一行
+    </p>
+  </div>
+</BaseCodeGroup>
 
 ## Inline Element (行內元素)
 
@@ -53,32 +59,34 @@ HTML 的元素主要被歸類為兩種顯示方式，一種是 `block`，一種�
 1. 透過 `display: inline;` 進行設置，以下由範例會選一個預設就是行內元素的 `span` tag 進行示範。
 2. 行內元素緊鄰著前後的元素
 
----
-
-<span>我是第一個 span</span>
-<span>我是第二個 span，我會僅跟著前面的元素喔！！</span>
-
-```html
-<span>我是第一個span</span>
-<span>我是第二個span，我會僅跟著前面的元素喔！！</span>
-```
-
----
+<BaseCodeGroup>
+  <div slot="code">
+    ```html
+    <span>我是第一個span</span>
+    <span>我是第二個span，我會緊跟著前面的元素喔！！</span>
+    ```
+  </div>
+  <div slot="preview">
+    <span>我是第一個 span</span>
+    <span>我是第二個 span，我會緊跟著前面的元素喔！！</span>
+  </div>
+</BaseCodeGroup>
 
 3. 行內元素的寬度是根據他的內容決定
 4. 行內元素的 `width` 及 `height` 是沒有效的
 
----
-
-<span style="width: 100vw;">100vw span</span>
-<span style="height: 100vh;">100vh span</span>
-
-```html
-<span style="width: 100vw;">100vw span</span>
-<span style="height: 100vh;">100vh span</span>
-```
-
----
+<BaseCodeGroup>
+  <div slot="code">
+    ```html
+    <span style="width: 100vw;">100vw span</span>
+    <span style="height: 100vh;">100vh span</span>
+    ```
+  </div>
+  <div slot="preview">
+    <span style="width: 100vw;">100vw span</span>
+    <span style="height: 100vh;">100vh span</span>
+  </div>
+</BaseCodeGroup>
 
 ## Inline Block Element
 
@@ -86,19 +94,20 @@ Inline Block 是一個特殊的存在，結合了上述兩者的一些特性，�
 
 1. 透過 `display: inline-block;` 進行設置。
 
----
-
-<span style="width: 100%; background-color: #aaa; display: inline-block">
-  100vw span
-</span>
-
-```html
-<span style="width: 100%; background-color: #aaa; display: inline-block">
-  100vw span
-</span>
-```
-
----
+<BaseCodeGroup>
+  <div slot="code">
+    ```html
+    <span style="width: 100%; background-color: #aaa; display: inline-block">
+      100% span
+    </span>
+    ```
+  </div>
+  <div slot="preview">
+    <span style="width: 100%; background-color: #aaa; display: inline-block">
+      100% span
+    </span>
+  </div>
+</BaseCodeGroup>
 
 ## 參考文件
 

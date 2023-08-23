@@ -23,10 +23,13 @@ const removeOuterTagCode = removeOuterTag(code)
 const renderCode = marked(removeOuterTagCode)
 
 const tabs: string[] = ['preview', 'code']
+const timesTamp = Date.now()
 ---
 
 <div
-  class='relative text-sm bg-[#FAFAFA] border border-gray-200 rounded-md base-code-group mb-8'
+  class=`relative text-sm bg-[#FAFAFA] border border-gray-200 rounded-md mb-8
+  base-code-group-${timesTamp}
+  `
 >
   <div class='border-b'>
     {
@@ -55,33 +58,34 @@ const tabs: string[] = ['preview', 'code']
   </div>
 </div>
 
-<script>
-  document.querySelectorAll('.base-code-group').forEach(container => {
-    const buttons = container.querySelectorAll('button.tab')
-    const codeblocks = container.querySelectorAll('.codeblock')
+<script define:vars={{ timesTamp }}>
+const container = document.querySelector(`.base-code-group-${timesTamp}`)
 
-    container.addEventListener('click', e => {
-      if (e.target && (e.target as Element).matches('button.tab')) {
-        // Reset all buttons and codeblocks
-        buttons.forEach(_button => {
-          _button.classList.remove('text-gray-700')
-          _button.classList.add('text-gray-400')
-        })
-        codeblocks.forEach(block => {
-          block.classList.add('hidden')
-        })
+const buttons = container.querySelectorAll('button.tab')
+const codeblocks = container.querySelectorAll('.codeblock')
 
-        // Highlight the clicked button
-        ;(e.target as HTMLButtonElement).classList.add('text-gray-700')
-
-        // Show the corresponding codeblock
-        const tabIndex = (e.target as HTMLButtonElement).getAttribute(
-          'data-tab-index'
-        )
-        if (tabIndex !== null) {
-          codeblocks[parseInt(tabIndex)].classList.remove('hidden')
-        }
-      }
+container.addEventListener('click', e => {
+  if (e.target && (e.target).matches('button.tab')) {
+    // Reset all buttons and codeblocks
+    buttons.forEach(_button => {
+      _button.classList.remove('text-gray-700')
+      _button.classList.add('text-gray-400')
     })
-  })
+    codeblocks.forEach(block => {
+      block.classList.add('hidden')
+    })
+
+      // Highlight the clicked button
+      ; (e.target).classList.add('text-gray-700')
+
+    // Show the corresponding codeblock
+    const tabIndex = (e.target).getAttribute(
+      'data-tab-index'
+    )
+    if (tabIndex !== null) {
+      codeblocks[parseInt(tabIndex)].classList.remove('hidden')
+    }
+  }
+})
+
 </script>
