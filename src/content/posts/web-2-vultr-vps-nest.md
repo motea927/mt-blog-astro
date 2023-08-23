@@ -9,6 +9,10 @@ tags: ["VPS", "Vultr", "NestJS", "PostgreSQL"]
 draft: false
 ---
 
+本文詳細介紹如何將 NestJS + PostgreSQL 的 side project 從 GCP 移至 VPS 虛擬主機 - Vultr，並探討 Docker 的使用和部署策略。從 Dockerizing 專案、網域設定，到在 Vultr VPS 上的部署步驟，提供完整的指南和參考資源，助您輕鬆完成部署。
+
+## 原由
+
 最近寫了一個 `NestJS` + `PostgreSQL` 的 `side project`，原先使用 GCP 上的 [Cloud Run](https://cloud.google.com/run?hl=zh-tw) + [Cloud SQL](https://cloud.google.com/sql?hl=zh-tw)，但後來發現 [Cloud SQL](https://cloud.google.com/sql?hl=zh-tw) 的計價是以小時的，不是像其他 App Engine 等服務是照用量計價，導致我才開一兩天價格就爆表，因此最終決定將專案移至 VPS 虛擬主機上，經比較及調查最終決定使用 [Vultr](https://www.vultr.com/)，一個月只要 6 美金就很夠用。
 
 ## Dockerizing 專案
@@ -182,7 +186,7 @@ server {
 
 1. 註冊 [Vultr](https://www.vultr.com/) 帳號
 2. 右上角點選藍色 + -> Deploy New Server
-   <nuxt-img src="/images/web services/2.vultr.webp" alt="新增服務" />
+   <img src="/images/posts/web-2-vultr-vps-nest-vultr.webp" alt="Vultr new service" width="1289" height="585" loading="lazy" decoding="async"  />
 3. 選擇 Cloud Compute 類型，其餘設定依據需求，這邊主機位置選擇 `Singapore` 或 `Tokyo` 都差不多，依據個人測試為主
 4. 完成之後透過 ssh 連進主機，可在專案 `Overview` 上看到 ip 及密碼
 
