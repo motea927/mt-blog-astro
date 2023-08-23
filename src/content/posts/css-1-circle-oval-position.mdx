@@ -136,14 +136,10 @@ label {
 
 橢圓形排版稍微複雜一點，其實就是將圓形壓扁( `scaleY(0.5)` )，再把元素拉回來( `scaleY(2)` )，這個倍率可自行調整，壓扁 `N (0.5)` 倍 就要把元素拉回來 `1/N (1/0.5=2)` 倍。
 
-### 效果預覽
-
 import Ellipse from "../../components/posts/css/circle/Ellipse.vue";
 
-<Ellipse client:visible />
-
-### 程式碼
-
+<BaseCodeGroup>
+  <div slot="code">
 ```vue
 <template>
   <div class="ellipse">
@@ -243,19 +239,19 @@ label {
 }
 </style>
 ```
+  </div>
+  <Ellipse client:visible slot="preview" />
+</BaseCodeGroup>
 
 ## 動畫
 
 這種排法有個好處是當你遇到一個很怪的橢圓形，你只需要對好橢圓形的形狀，靠著修改 `rotate` 就能確保他繞著圓上跑。
 
-### 效果預覽
 
 import AnimationEllipse from "../../components/posts/css/circle/AnimationEllipse.vue";
 
-<AnimationEllipse client:visible />
-
-### 程式碼
-
+<BaseCodeGroup>
+  <div slot="code">
 ```vue
 <template>
   <div class="animation-ellipse">
@@ -309,6 +305,9 @@ import AnimationEllipse from "../../components/posts/css/circle/AnimationEllipse
 }
 </style>
 ```
+  </div>
+  <AnimationEllipse client:visible slot="preview" />
+</BaseCodeGroup>
 
 ## 參考文件
 

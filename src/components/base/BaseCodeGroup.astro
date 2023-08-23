@@ -26,7 +26,7 @@ const tabs: string[] = ['preview', 'code']
 ---
 
 <div
-  class='relative text-sm bg-[#FAFAFA] border border-gray-200 rounded-md base-code-group mb-4'
+  class='relative text-sm bg-[#FAFAFA] border border-gray-200 rounded-md base-code-group mb-8'
 >
   <div class='border-b'>
     {
@@ -65,6 +65,7 @@ const tabs: string[] = ['preview', 'code']
         // Reset all buttons and codeblocks
         buttons.forEach(_button => {
           _button.classList.remove('text-gray-700')
+          _button.classList.add('text-gray-400')
         })
         codeblocks.forEach(block => {
           block.classList.add('hidden')
