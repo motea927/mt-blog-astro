@@ -1,6 +1,6 @@
 ---
 title: "CSS 基礎系列 2 - CSS 選擇器"
-description: "CSS 基礎系列文章， CSS 選擇器介紹"
+description: "深入探索 CSS 的基本選擇器，從 Type、Class、ID 到 Attribute 選擇器，並詳細介紹組合選擇器如後代、子元素和兄弟選擇器的使用方法。文章還涉及了尚在實驗階段的 Column combinator。完整指南幫助開發者更有效地選擇和樣式化元素。"
 date: 2022-11-30T00:00:00Z
 image: "/images/posts/css-basic-2-selectors.jpg"
 categories: ["CSS"]
@@ -8,6 +8,8 @@ authors: ["Morty"]
 tags: ["CSS", "CSS Selector"]
 draft: false
 ---
+
+深入探索 CSS 的基本選擇器，從 Type、Class、ID 到 Attribute 選擇器，並詳細介紹組合選擇器如後代、子元素和兄弟選擇器的使用方法。文章還涉及了尚在實驗階段的 Column combinator。完整指南幫助開發者更有效地選擇和樣式化元素。
 
 ## Basic Selector Type 基本選擇器
 

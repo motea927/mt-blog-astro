@@ -1,6 +1,6 @@
 ---
 title: "Netlify 及網域設定"
-description: "如何在在 Netlify 平台架設 Nuxt3 服務，並且設置自行購買的 Domain。"
+description: "探索如何在 Netlify 上快速部署 Nuxt 3 專案。從註冊、連接 GitHub、到網域設定，本文提供了一個簡單且幾乎零配置的方法，讓您輕鬆將使用 Nuxt 3 撰寫的部落格架設到 Netlify，並享受其便利性。"
 date: 2022-11-26T00:00:00Z
 image: "/images/posts/web-1-netlify-domain.jpg"
 categories: ["WebServices"]
@@ -9,7 +9,7 @@ tags: ["Nuxt3", "Netlify", "Domain", "Gandi"]
 draft: false
 ---
 
-之前的 `side project` 我幾乎都是架在 gcp 或 heroku，因為 `netlify` 只能架設靜態網頁，實在無法滿足我的需求，但近期得知 `netlify` 可以很好的架設 `Nuxt 3` 後，嘗試看看把使用 `Nuxt 3` 撰寫的部落格架設到 `netlify`，而且幾乎是 zero config，非常的方便！！
+之前的 side project 我幾乎都是架在 gcp 或 heroku，因為 netlify 只能架設靜態網頁，實在無法滿足我的需求，但近期得知 netlify 可以很好的架設 Nuxt 3 後，嘗試看看把使用 Nuxt 3 撰寫的部落格架設到 netlify，而且幾乎是 zero config，非常的方便！！
 
 ## 在 netlify 快速部屬 Nuxt3 專案
 

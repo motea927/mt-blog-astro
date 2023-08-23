@@ -1,6 +1,6 @@
 ---
 title: "在 Nuxt3 中透過 Module 及 Plugin 更方便的使用 gtag 吧"
-description: "透過 gtag 熟悉 Nuxt3 中的 Module 及 Plugin 寫法"
+description: "本文詳細指導如何在 Nuxt3 中自行撰寫 Module 以整合 Google gtag 功能。從引入 gtag script 到利用 Plugin 注入 gtag 方法，並提供了完整的程式碼範例和相關設定。讓您能夠在 Nuxt3 專案中輕鬆使用 Google gtag 進行數據追踪。"
 date: 2022-12-17T00:00:00Z
 image: "/images/posts/js-3-nuxt3-gtag.jpg"
 categories: ["JavaScript"]
@@ -8,6 +8,8 @@ authors: ["Morty"]
 tags: ["Nuxt3", "Module", "Plugin", "gtag.js"]
 draft: false
 ---
+
+本文詳細指導如何在 Nuxt3 中自行撰寫 Module 以整合 Google gtag 功能。從引入 gtag script 到利用 Plugin 注入 gtag 方法，並提供了完整的程式碼範例和相關設定。讓您能夠在 Nuxt3 專案中輕鬆使用 Google gtag 進行數據追踪。
 
 在 Nuxt2 中有相關的 Module [google-gtag-module
 ](https://github.com/nuxt-community/google-gtag-module) 可以使用，但看起來在 Nuxt3 並未打算更新，因此我們可以參考源碼在 Nuxt3 中自行撰寫 Module 達成。

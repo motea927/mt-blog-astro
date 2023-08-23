@@ -1,6 +1,6 @@
 ---
 title: "Vue CLI 無痛轉換 Vite 紀錄"
-description: "在 Vue CLI 的舊架構下，如何無痛轉換 Vite，同時保有抽換成 Webpack 5 的彈性"
+description: "探討從 vue cli + Webpack 4 遷移到 Vite 的過程，解決環境變數、val-loader 轉換和 index.html 變數注入等問題。本文提供了詳細的解決策略和範例，旨在幫助開發團隊順利完成舊專案的移植，並提升開發效率和體驗。"
 date: 2022-11-26T00:00:00Z
 image: "/images/posts/js-1-vite-migrate.jpg"
 categories: ["JavaScript"]

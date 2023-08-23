@@ -1,6 +1,6 @@
 ---
 title: "Nuxt3 ESLint + Prettier 配置"
-description: "Nuxt3 ESLint + Prettier 配置，讓你更快開始開發！"
+description: "介紹如何在 Nuxt3 中整合 ESLint 和 Prettier 以達到最佳的開發體驗。文章詳細指導安裝和配置 vue-tsc 進行類型檢查，並展示如何結合 vite-plugin-eslint 在網頁上顯示錯誤。還提供了完整的速寫和配置方法，幫助開發者快速設置和開始使用 Nuxt3。"
 date: 2022-12-02T00:00:00Z
 image: "/images/posts/js-2-nuxt3-eslint-prettier-configuration.jpg"
 categories: ["JavaScript"]
@@ -9,7 +9,7 @@ tags: ["Nuxt3", "ESLint", "Prettier"]
 draft: false
 ---
 
-由於 `Nuxt3` 已經是 stable 了，接下來預計會發布一系列文章包含 ESLint + Prettier、搭配 `ofetch` 封裝自己的 API、 使用 `MSW` 做 `Mock Data` 及 `Proxy` 等，讓你即刻使用 `Nuxt3` 開發出 production 等級的 `project`。
+介紹如何在 Nuxt3 中整合 ESLint 和 Prettier 以達到最佳的開發體驗。文章詳細指導安裝和配置 vue-tsc 進行類型檢查，並展示如何結合 vite-plugin-eslint 在網頁上顯示錯誤。還提供了完整的速寫和配置方法，幫助開發者快速設置和開始使用 Nuxt3。
 
 ## Vue-tsc
 
