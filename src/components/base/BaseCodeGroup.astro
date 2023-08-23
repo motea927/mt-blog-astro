@@ -1,5 +1,6 @@
 ---
 import { marked } from 'marked'
+// @ts-ignore
 import { getHighlighter } from 'shiki'
 
 function removeOuterTag(s: string): string {
@@ -23,13 +24,11 @@ const removeOuterTagCode = removeOuterTag(code)
 const renderCode = marked(removeOuterTagCode)
 
 const tabs: string[] = ['preview', 'code']
-const timesTamp = Date.now()
 ---
 
 <div
-  class=`relative text-sm bg-[#FAFAFA] border border-gray-200 rounded-md mb-8
-  base-code-group-${timesTamp}
-  `
+  class="relative text-sm bg-[#FAFAFA] border border-gray-200 rounded-md mb-8
+  base-code-group"
 >
   <div class='border-b'>
     {
@@ -58,34 +57,38 @@ const timesTamp = Date.now()
   </div>
 </div>
 
-<script define:vars={{ timesTamp }}>
-const container = document.querySelector(`.base-code-group-${timesTamp}`)
+<script>
+const codeGroup = document.querySelectorAll('div.base-code-group')
+if (!codeGroup) {
+  throw new Error('codeGroup not found')
+}
 
-const buttons = container.querySelectorAll('button.tab')
-const codeblocks = container.querySelectorAll('.codeblock')
+codeGroup.forEach(container => {
+  const buttons = container.querySelectorAll('button.tab')
+  const codeblocks = container.querySelectorAll('.codeblock')
 
-container.addEventListener('click', e => {
-  if (e.target && (e.target).matches('button.tab')) {
-    // Reset all buttons and codeblocks
-    buttons.forEach(_button => {
-      _button.classList.remove('text-gray-700')
-      _button.classList.add('text-gray-400')
-    })
-    codeblocks.forEach(block => {
-      block.classList.add('hidden')
-    })
-
+  container.addEventListener('click', e => {
+    if (e.target && (e.target as Element).matches('button.tab')) {
+      // Reset all buttons and codeblocks
+      buttons.forEach(_button => {
+        _button.classList.remove('text-gray-700')
+        _button.classList.add('text-gray-400')
+      })
+      codeblocks.forEach(block => {
+        block.classList.add('hidden')
+      })
+    
       // Highlight the clicked button
-      ; (e.target).classList.add('text-gray-700')
-
-    // Show the corresponding codeblock
-    const tabIndex = (e.target).getAttribute(
-      'data-tab-index'
-    )
-    if (tabIndex !== null) {
-      codeblocks[parseInt(tabIndex)].classList.remove('hidden')
+      ;(e.target as Element).classList.add('text-gray-700')
+    
+      // Show the corresponding codeblock
+      const tabIndex = (e.target as Element).getAttribute(
+        'data-tab-index'
+      )
+      if (tabIndex !== null) {
+        codeblocks[parseInt(tabIndex)].classList.remove('hidden')
+      }
     }
-  }
+  })
 })
-
 </script>
