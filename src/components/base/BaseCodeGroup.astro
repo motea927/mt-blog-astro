@@ -1,0 +1,86 @@
+---
+import { marked } from 'marked'
+import { getHighlighter } from 'shiki'
+
+function removeOuterTag(s: string): string {
+    const regex = /^<(\w+)[^>]*>([\s\S]*)<\/\1>$/;
+    const match = s.match(regex);
+    return match ? match[2] : s;
+}
+
+const highlighter = await getHighlighter({ theme: 'material-theme-lighter' })
+
+marked.setOptions({
+  highlight: function (code, lang) {
+    return highlighter.codeToHtml(code, lang)
+  }
+})
+
+const slots = Astro.slots
+
+const code = (slots.has('code') && await slots.render('code') ) || ''
+const removeOuterTagCode = removeOuterTag(code)
+const renderCode = marked(removeOuterTagCode)
+
+const tabs: string[] = ['preview', 'code']
+---
+
+<div
+  class='relative text-sm bg-[#FAFAFA] border border-gray-200 rounded-md base-code-group mb-4'
+>
+  <div class='border-b'>
+    {
+      tabs.map((tab, index) => (
+        <button
+          data-tab-index={index}
+          class=`
+            px-4 py-3 font-mono font-bold tab
+            ${index === 0 ? 'text-gray-700' : 'text-gray-400'}
+          `
+        >
+          {tab}
+        </button>
+      ))
+    }
+  </div>
+
+  <div>
+    <div class='block p-4 bg-white codeblock'>
+      <slot name="preview" />
+    </div>
+    <pre
+      class='hidden codeblock astro-code material-theme-lighter'
+      set:html={renderCode}
+    />
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.base-code-group').forEach(container => {
+    const buttons = container.querySelectorAll('button.tab')
+    const codeblocks = container.querySelectorAll('.codeblock')
+
+    container.addEventListener('click', e => {
+      if (e.target && (e.target as Element).matches('button.tab')) {
+        // Reset all buttons and codeblocks
+        buttons.forEach(_button => {
+          _button.classList.remove('text-gray-700')
+        })
+        codeblocks.forEach(block => {
+          block.classList.add('hidden')
+        })
+
+        // Highlight the clicked button
+        ;(e.target as HTMLButtonElement).classList.add('text-gray-700')
+
+        // Show the corresponding codeblock
+        const tabIndex = (e.target as HTMLButtonElement).getAttribute(
+          'data-tab-index'
+        )
+        if (tabIndex !== null) {
+          codeblocks[parseInt(tabIndex)].classList.remove('hidden')
+        }
+      }
+    })
+  })
+</script>

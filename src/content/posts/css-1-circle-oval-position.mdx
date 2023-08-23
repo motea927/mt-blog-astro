@@ -19,14 +19,13 @@ draft: false
 
 > 為方便示範將所有內容寫在一起，於開發環境請自行切 component 並以 computed 計算.
 
-### 效果預覽
-
 import Circle from "../../components/posts/css/circle/Circle.vue";
 
-<Circle client:visible />
+import BaseCodeGroup from "../../components/base/BaseCodeGroup.astro";
+import Test from "../../components/Test.vue";
 
-### 程式碼
-
+<BaseCodeGroup>
+  <div slot="code">
 ```vue
 <template>
   <div class="circle">
@@ -62,6 +61,7 @@ import Circle from "../../components/posts/css/circle/Circle.vue";
         {{ i }}
       </div>
     </div>
+
   </div>
 </template>
 
@@ -124,7 +124,13 @@ label {
   }
 }
 </style>
-```
+
+````
+
+  </div>
+  <Circle client:visible slot="preview" />
+</BaseCodeGroup>
+
 
 ## 橢圓形排版
 
@@ -187,9 +193,9 @@ const getStyle = (index: number) => {
 
   return {
     transform: `
-        rotate(${calcDeg}deg) 
-        translate(10rem) 
-        rotate(${calcDeg * -1}deg) 
+        rotate(${calcDeg}deg)
+        translate(10rem)
+        rotate(${calcDeg * -1}deg)
         scaleY(2)
       `,
   };
@@ -310,3 +316,4 @@ import AnimationEllipse from "../../components/posts/css/circle/AnimationEllipse
 - [CodePen - curved or ellipse path animation in css](https://codepen.io/yddmgirl/pen/RZVgoq)
 - [HTML+CSS+JS 实现 宇宙星球旋转动画特效 (3D)](https://juejin.cn/post/7004742284033916941)
 - [css3 animation 沿椭圆轨道旋转运动 (3D)](https://blog.csdn.net/a460550542/article/details/122111518)
+````

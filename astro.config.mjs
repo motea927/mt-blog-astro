@@ -29,7 +29,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [],
     shikiConfig: {
-      theme: "one-dark-pro",
+      // material-theme-lighter
+      // solarized-light
+      theme: "material-theme-lighter",
       wrap: true,
     },
     extendDefaultPlugins: true,

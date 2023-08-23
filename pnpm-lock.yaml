@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@astrojs/image':
     specifier: ^0.14.1
@@ -84,6 +88,9 @@ devDependencies:
   sharp:
     specifier: ^0.31.3
     version: 0.31.3
+  shiki:
+    specifier: ^0.14.3
+    version: 0.14.3
   tailwind-bootstrap-grid:
     specifier: ^5.0.1
     version: 5.0.1(tailwindcss@3.3.3)
@@ -4522,7 +4529,3 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
