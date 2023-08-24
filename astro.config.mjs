@@ -6,8 +6,10 @@ import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 import config from "./src/config/config.json";
 
-// https://astro.build/config
 import vue from "@astrojs/vue";
+
+// https://astro.build/config
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +27,12 @@ export default defineConfig({
     }),
     mdx(),
     vue(),
+    partytown({
+      // Example: Add dataLayer.push as a forwarding-event.
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
   ],
   markdown: {
     remarkPlugins: [],
