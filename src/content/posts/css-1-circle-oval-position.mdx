@@ -21,11 +21,14 @@ draft: false
 
 import Circle from "../../components/posts/css/circle/Circle.vue";
 
-import BaseCodeGroup from "../../components/base/BaseCodeGroup.astro";
-import Test from "../../components/Test.vue";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-<BaseCodeGroup>
-  <div slot="code">
+<Tabs>
+<TabItem label="Preview">
+  <Circle client:load />
+</TabItem>
+<TabItem label="Vue">
+
 ```vue
 <template>
   <div class="circle">
@@ -61,7 +64,6 @@ import Test from "../../components/Test.vue";
         {{ i }}
       </div>
     </div>
-
   </div>
 </template>
 
@@ -124,13 +126,10 @@ label {
   }
 }
 </style>
+```
 
-````
-
-  </div>
-  <Circle client:load slot="preview" />
-</BaseCodeGroup>
-
+</TabItem>
+</Tabs>
 
 ## 橢圓形排版
 
@@ -138,8 +137,13 @@ label {
 
 import Ellipse from "../../components/posts/css/circle/Ellipse.vue";
 
-<BaseCodeGroup>
-  <div slot="code">
+<Tabs>
+  <TabItem label="Preview">
+    <Ellipse client:visible />
+  </TabItem>
+
+<TabItem label="Vue">
+
 ```vue
 <template>
   <div class="ellipse">
@@ -239,19 +243,23 @@ label {
 }
 </style>
 ```
-  </div>
-  <Ellipse client:load slot="preview" />
-</BaseCodeGroup>
+
+</TabItem>
+</Tabs>
 
 ## 動畫
 
 這種排法有個好處是當你遇到一個很怪的橢圓形，你只需要對好橢圓形的形狀，靠著修改 `rotate` 就能確保他繞著圓上跑。
 
-
 import AnimationEllipse from "../../components/posts/css/circle/AnimationEllipse.vue";
 
-<BaseCodeGroup>
-  <div slot="code">
+<Tabs>
+  <TabItem label="Preview">
+    <AnimationEllipse />
+  </TabItem>
+
+<TabItem label="Vue">
+
 ```vue
 <template>
   <div class="animation-ellipse">
@@ -305,9 +313,9 @@ import AnimationEllipse from "../../components/posts/css/circle/AnimationEllipse
 }
 </style>
 ```
-  </div>
-  <AnimationEllipse client:load slot="preview" />
-</BaseCodeGroup>
+
+</TabItem>
+</Tabs>
 
 ## 參考文件
 
@@ -315,4 +323,3 @@ import AnimationEllipse from "../../components/posts/css/circle/AnimationEllipse
 - [CodePen - curved or ellipse path animation in css](https://codepen.io/yddmgirl/pen/RZVgoq)
 - [HTML+CSS+JS 实现 宇宙星球旋转动画特效 (3D)](https://juejin.cn/post/7004742284033916941)
 - [css3 animation 沿椭圆轨道旋转运动 (3D)](https://blog.csdn.net/a460550542/article/details/122111518)
-````

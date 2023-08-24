@@ -11,6 +11,7 @@
     "@astrojs/image": "^0.14.1",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/rss": "^2.1.0",
+    "@astrojs/starlight": "^0.7.3",
     "@astrojs/vue": "^2.2.1",
     "astro": "^2.10.9",
     "date-fns": "^2.29.3",
