@@ -44,4 +44,11 @@ export default defineConfig({
     },
     extendDefaultPlugins: true,
   },
+  vite: {
+    resolve: {
+      alias: {
+        "@rive-app/canvas": "./node_modules/@rive-app/canvas/rive.js",
+      },
+    },
+  },
 });
