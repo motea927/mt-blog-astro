@@ -1,0 +1,188 @@
+---
+title: "新一代跨平台、高效能動畫庫 - Rive"
+description: "本文深入探討 Rive 動畫庫及其開源格式 .riv，詳細介紹其高效能、跨平台及可互動性的特點。文章還提供了如何在 Vue 中使用 Rive 的範例，並比較其與其他動畫庫的效能。對於希望提升動畫效能的開發者，Rive 絕對值得一試。"
+date: 2023-08-31T00:00:00Z
+image: "/images/posts/js-4-rive.jpg"
+categories: ["JavaScript"]
+authors: ["Morty"]
+tags: ["Animations", "Lottie", "Canvas", "SVG"]
+draft: false
+---
+
+本文將介紹一款非常令人驚豔的動畫庫及格式，具有非常高效能及跨平台的優勢，且具有 `狀態` 及 `可互動性` ，相關生態系已逐漸完整，常受到一些動畫庫效能困擾的人絕對可以試試！
+
+## Rive 簡介
+
+[Rive](https://rive.app/) 是從 flutter 社群開始發跡，主要是透過 Rive 的編輯器產出開源格式 `.riv` 檔進行傳輸，在 Web 前端上使用 [JS/WASM runtime](https://help.rive.app/runtimes/overview/web-js) 進行渲染，主要是 canvas + wasm，效能非常好且 GPU memory 的使用量遠比其他動畫庫低出許多。
+
+值得注意的是雖然檔案格式跟 Runtime 都是開源的，不過編輯器是有收費制度的，免費的編輯器會有一些限制，可先使用免費再決定是否要進階付費，跟 Zeplin 的付費模式蠻像的。
+
+### 實際應用
+
+目前 [Figma](https://www.figma.com/) 的官網有[大量使用](https://rive.app/blog/figma-s-new-homepage-is-full-of-rive-animations) Rive，效果非常出色。
+
+### 效能
+
+效能在動畫庫中算是很不錯的，以前使用過 [dragonbones](https://dragonbones.github.io/cn/index.html)，但後續已無人繼續維護且記憶體控管上稍微不理想，官方甚至有跟 Lottie 對比，詳情可以參考[此篇文章](https://rive.app/blog/rive-as-a-lottie-alternative)
+
+## 範例
+
+以下範例將以 Vue 進行示範
+
+### Install
+
+```bash
+pnpm add @rive-app/canvas
+```
+
+### 基礎用法
+
+基礎用法非常簡單，為方便展示寫在同一個 component，可自行進行後續封裝。
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import Rive from "../../components/posts/js/rive/Rive.vue";
+
+<Tabs>
+  <TabItem label="Preview">
+    <Rive client:load />
+  </TabItem>
+
+<TabItem label="Vue">
+
+```vue
+<template>
+  <div class="flex justify-center">
+    <canvas
+      ref="canvas"
+      width="400"
+      height="400"
+      class="w-full max-w-[400px]"
+    ></canvas>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { Rive } from "@rive-app/canvas";
+import { onMounted, ref } from "vue";
+
+const canvas = ref<HTMLCanvasElement | null>(null);
+
+onMounted(() => {
+  if (!canvas.value) {
+    throw new Error("canvas not found");
+  }
+
+  const rive = new Rive({
+    canvas: canvas.value,
+    src: "https://cdn.rive.app/animations/vehicles.riv",
+    autoplay: true,
+    onLoad: () => {
+      rive.resizeDrawingSurfaceToCanvas();
+    },
+  });
+});
+</script>
+```
+
+</TabItem>
+</Tabs>
+
+### 另人驚豔的狀態切換
+
+試著按下以下按鈕並觀察變化吧！
+
+import RiveState from "../../components/posts/js/rive/RiveState.vue";
+
+<Tabs>
+  <TabItem label="Preview">
+    <RiveState client:load />
+  </TabItem>
+
+<TabItem label="Vue">
+
+```vue
+<template>
+  <div class="flex flex-col items-center justify-center">
+    <canvas
+      ref="canvas"
+      width="400"
+      height="400"
+      class="w-full max-w-[400px]"
+    ></canvas>
+
+    <div class="flex gap-2 p-4">
+      <button
+        v-for="(button, key) in buttons"
+        :key="key"
+        class="p-2 bg-gray-300 rounded-md"
+        @click="button.onClick"
+      >
+        {{ button.text }}
+      </button>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { Rive, Layout } from "@rive-app/canvas";
+import { onMounted, ref } from "vue";
+
+const canvas = ref<HTMLCanvasElement | null>(null);
+let truck: Rive;
+
+const buttons = ref({
+  idle: {
+    text: "開車",
+    onClick: () => {
+      if (!truck) {
+        throw new Error("truck not found.");
+      }
+
+      const isPlaying = truck.playingAnimationNames.includes("idle");
+      buttons.value.idle.text = isPlaying ? "開車" : "停車";
+      isPlaying ? truck.pause("idle") : truck.play("idle");
+    },
+  },
+  windshield_wipers: {
+    text: "開雨刷",
+    onClick: () => {
+      if (!truck) {
+        throw new Error("truck not found.");
+      }
+
+      const isPlaying =
+        truck.playingAnimationNames.includes("windshield_wipers");
+      buttons.value.windshield_wipers.text = isPlaying ? "開雨刷" : "關雨刷";
+      isPlaying
+        ? truck.pause("windshield_wipers")
+        : truck.play("windshield_wipers");
+    },
+  },
+});
+
+onMounted(() => {
+  if (!canvas.value) {
+    throw new Error("canvas not found");
+  }
+
+  truck = new Rive({
+    canvas: canvas.value,
+    src: "https://cdn.rive.app/animations/vehicles.riv",
+    artboard: "Jeep",
+    onLoad: () => {
+      truck.resizeDrawingSurfaceToCanvas();
+    },
+  });
+});
+</script>
+```
+
+</TabItem>
+</Tabs>
+
+## 參考文件
+
+- [rive.app](https://rive.app/)
+- [Rive vs Lottie](https://rive.app/blog/rive-as-a-lottie-alternative)
+- [Figma's new homepage is full of Rive animations
+  ](https://rive.app/blog/figma-s-new-homepage-is-full-of-rive-animations)
