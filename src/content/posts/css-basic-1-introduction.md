@@ -2,7 +2,7 @@
 title: "CSS 基礎系列 1 - 基礎介紹"
 description: "深入探討 CSS 的核心原理，從 Cascading 的三種類別到 CSS 的宣告方式，並解釋如何使用 link tag 引入外部 CSS。此系列偏向理論，旨在幫助讀者更深入理解 CSS 背後的運作機制。"
 date: 2022-11-30T00:00:00Z
-image: "/images/posts/css-basic-1-introduction.jpg"
+image: "../../assets/images/posts/css-basic-1-introduction.jpg"
 categories: ["CSS"]
 authors: ["Morty"]
 tags: ["CSS", "Cascading", "JavaScript", "Webpack", "Rollup"]

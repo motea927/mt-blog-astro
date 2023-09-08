@@ -1,7 +1,6 @@
 ---
 title: "I’m Morty, A passionate web developer"
 meta_title: "About"
-image: "/images/author.jpg"
 draft: false
 
 contributions:

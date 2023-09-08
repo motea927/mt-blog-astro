@@ -2,7 +2,7 @@
 title: "CSS 基礎系列 3 - 單位"
 description: "深入了解 CSS 的單位分類，包括絕對和相對單位。從常見的 px 到相對於字體大小的 em 和 rem，以及基於 viewport 的 vw 和 vh，本文詳細解釋了各單位的特性和計算方式，並提供實用的應用建議，如 RWD 設計和文字排版。"
 date: 2022-12-17T00:00:00Z
-image: "/images/posts/css-basic-3-units.jpg"
+image: "../../assets/images/posts/css-basic-3-units.jpg"
 categories: ["CSS"]
 authors: ["Morty"]
 tags: ["CSS", "CSS Units"]

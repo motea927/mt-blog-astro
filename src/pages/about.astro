@@ -3,33 +3,33 @@ import { Image } from "astro:assets";
 import Base from "@layouts/Base.astro";
 import { markdownify } from "@lib/utils/textConverter";
 import { getEntryBySlug } from "astro:content";
+import authorImage from "../assets/images/author.jpg";
 
 const entry = await getEntryBySlug("about", "index");
 const { Content } = await entry.render();
-const { title, description, meta_title, image, contributions } = entry.data;
+const { title, description, meta_title, contributions } = entry.data;
 ---
 
 <Base
   title={title}
   meta_title={meta_title}
   description={description}
-  image={image}
+  image={authorImage.src}
 >
   <section class="section">
     <div class="container">
       <div class="row md:gx-4">
         <div class="sm:col-5 md:col-4">
           {
-            image && (
+            (
               <div class="mb-8 img-cover">
                 <Image
-                  src={image}
+                  src={authorImage}
                   width={295}
-                  height={440}
+                  height={443}
                   alt={title}
                   class="w-full rounded-lg"
                   format={"webp"}
-                  quality={90}
                   loading={"eager"}
                 />
               </div>

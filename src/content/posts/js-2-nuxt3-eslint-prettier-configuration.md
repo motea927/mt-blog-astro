@@ -2,7 +2,7 @@
 title: "Nuxt3 ESLint + Prettier 配置"
 description: "介紹如何在 Nuxt3 中整合 ESLint 和 Prettier 以達到最佳的開發體驗。文章詳細指導安裝和配置 vue-tsc 進行類型檢查，並展示如何結合 vite-plugin-eslint 在網頁上顯示錯誤。還提供了完整的速寫和配置方法，幫助開發者快速設置和開始使用 Nuxt3。"
 date: 2022-12-02T00:00:00Z
-image: "/images/posts/js-2-nuxt3-eslint-prettier-configuration.jpg"
+image: "../../assets/images/posts/js-2-nuxt3-eslint-prettier-configuration.jpg"
 categories: ["JavaScript"]
 authors: ["Morty"]
 tags: ["Nuxt3", "ESLint", "Prettier"]

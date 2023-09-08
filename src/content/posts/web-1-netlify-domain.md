@@ -2,7 +2,7 @@
 title: "Netlify 及網域設定"
 description: "探索如何在 Netlify 上快速部署 Nuxt 3 專案。從註冊、連接 GitHub、到網域設定，本文提供了一個簡單且幾乎零配置的方法，讓您輕鬆將使用 Nuxt 3 撰寫的部落格架設到 Netlify，並享受其便利性。"
 date: 2022-11-26T00:00:00Z
-image: "/images/posts/web-1-netlify-domain.jpg"
+image: "../../assets/images/posts/web-1-netlify-domain.jpg"
 categories: ["WebServices"]
 authors: ["Morty"]
 tags: ["Nuxt3", "Netlify", "Domain", "Gandi"]
@@ -16,7 +16,7 @@ draft: false
 1. 在 [netlify](https://www.netlify.com/) 註冊及登入
 2. Team overview -> Add new site -> import an existing project
 
-   <img src="/images/posts/web-1-netlify-domain-step.webp" alt="在 netlify 建立專案" width="1327" height="881" loading="lazy" decoding="async"  />
+   <img src="../../assets/images/posts/web-1-netlify-domain-step.webp" alt="在 netlify 建立專案" width="1327" height="881" loading="lazy" decoding="async"  />
 
 3. 連接 github
 4. 選擇專案
