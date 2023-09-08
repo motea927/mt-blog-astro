@@ -4,11 +4,7 @@
     "base_url": "https://morty.tw",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_width": "140",
-    "logo_height": "40",
-    "logo_text": "Morty"
+    "favicon": "/images/favicon.png"
   },
 
   "settings": {

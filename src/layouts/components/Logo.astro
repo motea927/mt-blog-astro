@@ -1,41 +1,28 @@
 ---
 import { Image } from "astro:assets";
+import LogoImage from "../../assets/images/logo.png";
 import config from "@config/config.json";
-const { src } = Astro.props;
 const {
-  logo,
-  logo_width,
-  logo_height,
-  logo_text,
   title,
 }: {
-  logo: string;
-  logo_width: any;
-  logo_height: any;
-  logo_text: string;
   title: string;
 } = config.site;
+
+const WIDTH = 140;
+const HEIGHT = 40;
 ---
 
 <a href="/" class="mb-4 md:mb-0">
-  {
-    src || logo ? (
-      <Image
-        width={logo_width.replace("px", "") * 2}
-        height={logo_height.replace("px", "") * 2}
-        src={src ? src : logo}
-        alt={title}
-        style={{
-          height: logo_height.replace("px", "") + "px",
-          width: logo_width.replace("px", "") + "px",
-        }}
-        format={"webp"}
-        quality={90}
-      />
-    ) : logo_text ? (
-      logo_text
-    ) : (
-      title
-    )
-  }
+  <Image
+    width={WIDTH * 2}
+    height={HEIGHT * 2}
+    src={LogoImage}
+    alt={title}
+    style={{
+      height: HEIGHT + "px",
+      width: WIDTH + "px",
+    }}
+    format={"webp"}
+    quality={90}
+  />
 </a>
