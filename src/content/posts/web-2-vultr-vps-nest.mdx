@@ -186,9 +186,22 @@ server {
 
 1. 註冊 [Vultr](https://www.vultr.com/) 帳號
 2. 右上角點選藍色 + -> Deploy New Server
-   <img src="../../assets/images/posts/web-2-vultr-vps-nest-vultr.webp" alt="Vultr new service" width="1289" height="585" loading="lazy" decoding="async"  />
-3. 選擇 Cloud Compute 類型，其餘設定依據需求，這邊主機位置選擇 `Singapore` 或 `Tokyo` 都差不多，依據個人測試為主
-4. 完成之後透過 ssh 連進主機，可在專案 `Overview` 上看到 ip 及密碼
+
+import vultrImage from "../../assets/images/posts/web-2-vultr-vps-nest-vultr.webp";
+import { Image } from "astro:assets";
+
+<Image
+  src={vultrImage}
+  alt="Vultr new service"
+  width="1289"
+  height="585"
+  loading="lazy"
+  decoding="async"
+/>
+
+3. 選擇 Cloud Compute 類型，其餘設定依據需求，這邊主機位置選擇 `Singapore` 或
+   `Tokyo` 都差不多，依據個人測試為主 4. 完成之後透過 ssh 連進主機，可在專案
+   `Overview` 上看到 ip 及密碼
 
 ```bash
 ssh root@yourip
