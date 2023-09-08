@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import Base from "@layouts/Base.astro";
 import { markdownify } from "@lib/utils/textConverter";
 import { getEntryBySlug } from "astro:content";
@@ -19,24 +19,26 @@ const { title, description, meta_title, image, contributions } = entry.data;
     <div class="container">
       <div class="row md:gx-4">
         <div class="sm:col-5 md:col-4">
-          {image && (
-            <div class="mb-8 img-cover">
-              <Image
-                src={image}
-                width={295}
-                height={440}
-                alt={title}
-                class="w-full rounded-lg"
-                format={'webp'}
-                quality={90}
-                loading={'eager'}
-              />
-            </div>
-          )}
+          {
+            image && (
+              <div class="mb-8 img-cover">
+                <Image
+                  src={image}
+                  width={295}
+                  height={440}
+                  alt={title}
+                  class="w-full rounded-lg"
+                  format={"webp"}
+                  quality={90}
+                  loading={"eager"}
+                />
+              </div>
+            )
+          }
         </div>
         <div class="sm:col-7 md:col-8">
           <h1 set:html={markdownify(title)} class="mb-8 h3" />
-    
+
           <div class="content">
             <Content />
           </div>
@@ -49,18 +51,20 @@ const { title, description, meta_title, image, contributions } = entry.data;
     <div class="container">
       <h3 class="mb-20 page-heading">{contributions.title}</h3>
       <div class="justify-center text-center row gy-4">
-        {contributions.items.map((item: any) => (
-          <a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="lg:col-4 md:col-6 hover:text-primary"
-          >  
-            <h4 class="mb-3 text-dark font-weight-700">{item.title}</h4>
-            <p class="">{item.description}</p>
-            <time class="block text-xs">{item.date}</time>
-          </a>
-        ))}
+        {
+          contributions.items.map((item: any) => (
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="lg:col-4 md:col-6 hover:text-primary"
+            >
+              <h4 class="mb-3 text-dark font-weight-700">{item.title}</h4>
+              <p class="">{item.description}</p>
+              <time class="block text-xs">{item.date}</time>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>

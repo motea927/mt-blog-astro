@@ -1,43 +1,43 @@
 ---
-import { Image } from '@astrojs/image/components'
-import Share from '@components/Share.astro'
-import SimilarPosts from '@components/SimilarPosts.astro'
-import { getSinglePage } from '@lib/contentParser.astro'
-import dateFormat from '@lib/utils/dateFormat'
-import similerItems from '@lib/utils/similarItems'
-import { humanize, markdownify, slugify } from '@lib/utils/textConverter'
-import { BiCalendarEdit, BiCategoryAlt } from 'react-icons/bi/index.js'
+import { Image } from "astro:assets";
+import Share from "@components/Share.astro";
+import SimilarPosts from "@components/SimilarPosts.astro";
+import { getSinglePage } from "@lib/contentParser.astro";
+import dateFormat from "@lib/utils/dateFormat";
+import similerItems from "@lib/utils/similarItems";
+import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
+import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi/index.js";
 
-const posts = await getSinglePage('posts')
-const { post } = Astro.props
-const similarPosts = similerItems(post, posts, post.slug)
-const { Content } = await post.render()
-const { title, description, categories, image, date, tags } = post.data
+const posts = await getSinglePage("posts");
+const { post } = Astro.props;
+const similarPosts = similerItems(post, posts, post.slug);
+const { Content } = await post.render();
+const { title, description, categories, image, date, tags } = post.data;
 ---
 
-<section class='section'>
-  <div class='container'>
-    <article class='justify-center row'>
-      <div class='text-center md:col-10'>
-        <h1 set:html={markdownify(title)} class='h2' />
-        <ul class='flex flex-wrap items-center justify-center mt-4 text-text'>
-          <li class='flex flex-wrap items-center mx-3 font-medium'>
-            <BiCalendarEdit className='mr-1 h-5 w-5 text-gray-600' />
+<section class="section">
+  <div class="container">
+    <article class="justify-center row">
+      <div class="text-center md:col-10">
+        <h1 set:html={markdownify(title)} class="h2" />
+        <ul class="flex flex-wrap items-center justify-center mt-4 text-text">
+          <li class="flex flex-wrap items-center mx-3 font-medium">
+            <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
             <>{dateFormat(date)}</>
           </li>
-          <li class='flex flex-wrap items-center mx-3'>
-            <BiCategoryAlt className='mr-1 h-[18px] w-[18px] text-gray-600' />
+          <li class="flex flex-wrap items-center mx-3">
+            <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
             <>
               <ul>
                 {
                   categories.map((category: string, i: number) => (
-                    <li class='inline-block'>
+                    <li class="inline-block">
                       <a
                         href={`/categories/${slugify(category)}`}
-                        class='mr-2 font-medium hover:text-primary'
+                        class="mr-2 font-medium hover:text-primary"
                       >
                         {humanize(category)}
-                        {i !== post.data.categories.length - 1 && ','}
+                        {i !== post.data.categories.length - 1 && ","}
                       </a>
                     </li>
                   ))
@@ -48,7 +48,7 @@ const { title, description, categories, image, date, tags } = post.data
         </ul>
       </div>
 
-      <div class='mt-8 mb-2 col-12'>
+      <div class="mt-8 mb-2 col-12">
         {
           image && (
             <Image
@@ -56,27 +56,27 @@ const { title, description, categories, image, date, tags } = post.data
               height={500}
               width={1000}
               alt={title}
-              format={'webp'}
-              class='rounded-lg'
+              format={"webp"}
+              class="rounded-lg"
               quality={90}
-              loading={'eager'}
+              loading={"eager"}
             />
           )
         }
       </div>
 
-      <div class='md:col-10'>
-        <div class='mb-16 text-left content'>
+      <div class="md:col-10">
+        <div class="mb-16 text-left content">
           <Content />
         </div>
-        <div class='flex flex-wrap items-center justify-between'>
-          <ul class='mb-4 mr-4 space-x-3'>
+        <div class="flex flex-wrap items-center justify-between">
+          <ul class="mb-4 mr-4 space-x-3">
             {
               tags.map((tag: string) => (
-                <li class='inline-block'>
+                <li class="inline-block">
                   <a
                     href={`/tags/${slugify(tag)}`}
-                    class='block px-4 py-2 text-sm font-semibold transition duration-300 rounded-lg bg-theme-light text-dark hover:text-primary'
+                    class="block px-4 py-2 text-sm font-semibold transition duration-300 rounded-lg bg-theme-light text-dark hover:text-primary"
                   >
                     #{humanize(tag)}
                   </a>
@@ -85,7 +85,7 @@ const { title, description, categories, image, date, tags } = post.data
             }
           </ul>
           <Share
-            className='social-share mb-4'
+            className="social-share mb-4"
             title={title}
             description={description}
             slug={post.slug}
@@ -99,9 +99,9 @@ const { title, description, categories, image, date, tags } = post.data
 <!-- similar posts -->
 {
   similarPosts.length > 0 && (
-    <section class='pt-0 section'>
-      <div class='container'>
-        <h2 class='mb-8 text-center h3'>Similar Posts</h2>
+    <section class="pt-0 section">
+      <div class="container">
+        <h2 class="mb-8 text-center h3">Similar Posts</h2>
         <SimilarPosts posts={similarPosts.slice(0, 3)} />
       </div>
     </section>
