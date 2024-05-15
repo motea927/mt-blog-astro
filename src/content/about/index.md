@@ -6,6 +6,16 @@ draft: false
 contributions:
   title: "Contributions"
   items:
+    - title: "[PR][xiaoluoboding/vue-sonner]"
+      description: "feat: support dynamic position #68"
+      date: "2024-05-07"
+      link: "https://github.com/xiaoluoboding/vue-sonner/pull/68"
+
+    - title: "[PR][farm-fe/farm]"
+      description: "feat: add postinstall script for peer-gear when Yarn is installed #985"
+      date: "2024-02-18"
+      link: "https://github.com/farm-fe/farm/pull/985"
+
     - title: "[PR][unjs/nitro]"
       description: "feat: allow ignoring public assets with ignore options #945"
       date: "2023-07-14"
@@ -46,10 +56,10 @@ contributions:
       date: "2022-09-15"
       link: "https://github.com/unjs/ofetch/issues/124"
 
-    - title: "Pending..."
-      description: ""
-      date: ""
-      link: ""
+    # - title: "Pending..."
+    #   description: ""
+    #   date: ""
+    #   link: ""
 ---
 
 Hello, I'm Morty.
